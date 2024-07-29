@@ -6,8 +6,8 @@ import java.sql.SQLException;
 
 public class ConnectionFactory {
     private static final String URL = "jdbc:postgresql://localhost:5432/biblioteca";
-    private static final String USER = "seu_usuario";
-    private static final String PASSWORD = "sua_senha";
+    private static final String USER = "podtgres";
+    private static final String PASSWORD = "postgres";
 
     public static Connection getConnection() {
         try {
