@@ -12,7 +12,7 @@ public class LivroDAO {
     }
 
     public void adicionarLivro(Livro livro) {
-        String sql = "INSERT INTO livros (titulo, autor, isbn) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO livro (titulo, autor, isbn) VALUES (?, ?, ?)";
 
         try (PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             stmt.setString(1, livro.getTitulo());
@@ -34,7 +34,7 @@ public class LivroDAO {
     }
 
     public Livro buscarLivroPorTitulo(String titulo) {
-        String sql = "SELECT * FROM livros WHERE titulo = ?";
+        String sql = "SELECT * FROM livro WHERE titulo = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, titulo);
             try (ResultSet rs = stmt.executeQuery()) {
@@ -56,7 +56,7 @@ public class LivroDAO {
     }
 
     public List<Livro> listarLivros() {
-        String sql = "SELECT * FROM livros";
+        String sql = "SELECT * FROM livro";
         List<Livro> livros = new ArrayList<>();
         try (PreparedStatement stmt = connection.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
